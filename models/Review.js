@@ -17,7 +17,17 @@ Review.init({
         // text chosen over string for longer length
         type: DataTypes.TEXT,
         allowNull: false
-      },
+    },
+    // foreign key for user so we know who wrote the review
+    userId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        // this links the review to the user who wrote it
+        references: {
+            model: 'user',
+            key: 'id'
+        }
+    }
 }, {
     // use sequelize info to add this model to the correct db table
     sequelize,
