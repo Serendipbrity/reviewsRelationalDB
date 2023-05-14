@@ -9,6 +9,8 @@ const app = express();
 // build tables based on models
 const models = require('./models');
 
+app.use(express.static('dist'));
+
 // to access the public folder
 app.use(express.static('public'));
 
